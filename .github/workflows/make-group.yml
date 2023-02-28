@@ -11,14 +11,13 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   make-group:
-    strategy:
-      matrix:
-        member: [김관경, 최용석, 이우재, 이선민, 임채윤, 김세영, 김건우, 신우성, 허준영, 권나영, 송민종, 이재권, 백수만, 이동재, 강보석, 박상준]
-        
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    env:
+      members: ("김관경", "최용석", "이우재", "이선민", "임채윤", "김세영", "김건우", "신우성", "허준영", "권나영", "송민종", "이재권", "백수만", "이동재", "강보석", "박상준")
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: say hi
-        run: echo hi ${{ matrix.member }}!
+        run: echo hi ${ env.members }!
